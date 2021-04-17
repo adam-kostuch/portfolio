@@ -20,3 +20,7 @@ jobs:
         keep_history: true
         on:
           branch: master
+
+env: 
+  global: 
+    secure: "mlBHaybSOm19LO__ICixCg"
