@@ -21,12 +21,20 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "postinstall": "node ./node_modules/husky/lib/installer/bin install",
+    "deploy": "git push origin `git subtree split --prefix dist master`:gh-pages --force",
+    "watch": "gulp watch",
+    "prod": "gulp build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "precommit": "pretty-quick --staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prod"
+    }
   },
   "eslintConfig": {
     "extends": [
